@@ -1,0 +1,82 @@
+/* ═══════════════════════════════════════════
+   로컬 바이브 (Local Vibe) — Design Tokens
+   Source: design/DESIGN.md (Figma 확정)
+   ═══════════════════════════════════════════ */
+
+@font-face {
+  font-family: 'YeogiOttaeJalnanGothic';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
+  font-weight: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'MunmakchoByeolban';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2604-1@1.0/MUNMAK_BYEOLBANCHE.woff2') format('woff2');
+  font-weight: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ─── Core Colors ─── */
+  --color-surface-base: #2B2420;
+  --color-surface-dark: #1D1A18;
+  --color-surface-muted: #F3F3F3;
+  --color-surface-white: #FFFFFF;
+  --color-text-primary: #F0EF90;
+  --color-text-secondary: #B0AFCF;
+  --color-text-dark: #1D1A18;
+  --color-text-heading: #316B9D;
+
+  /* ─── Accent Colors ─── */
+  --color-accent-red: #EA3E4A;
+  --color-accent-blue: #43AAFA;
+  --color-accent-yellow: #FDF45B;
+  --color-accent-black: #181818;
+
+  /* ─── Typography ─── */
+  --font-primary: 'Noto Sans KR', Pretendard, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --font-display: 'Kakao Big Sans', 'Noto Sans KR', sans-serif;
+  --fs-xs: 12px;
+  --fs-sm: 14px;
+  --fs-md: 16px;
+  --fs-lg: 17px;
+  --fs-xl: 19px;
+  --fs-2xl: 22px;
+  --fs-3xl: 26px;
+  --fs-4xl: 30px;
+  --fw-light: 300;
+  --fw-base: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+  --fw-black: 900;
+  --lh-base: 1.6;
+  --lh-tight: 1.2;
+
+  /* ─── Spacing ─── */
+  --sp-1: 2px;
+  --sp-2: 5px;
+  --sp-3: 6px;
+  --sp-4: 7px;
+  --sp-5: 8px;
+  --sp-6: 10px;
+  --sp-7: 11px;
+  --sp-8: 13px;
+  --sp-element: 26px;
+  --sp-block: 39px;
+  --sp-section: 52px;
+
+  /* ─── Effects ─── */
+  --radius-pill: 0;
+  --radius-card: 0;
+  --radius-sm: 0;
+  --shadow-1: 0 0 6px rgba(61, 77, 84, 0.28);
+  --shadow-2: 0 3px 6px rgba(33, 56, 121, 0.16);
+  --shadow-3: 0 3px 6px rgba(0, 0, 0, 0.16);
+  --shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --motion: 400ms ease;
+
+  /* ─── Layout ─── */
+  --max-width: 1200px;
+  --gnb-height: 100px;
+  --gutter: clamp(16px, 3vw, 48px);
+}

@@ -1,0 +1,485 @@
+/* ═══════════════════════════════════════════
+   Home — Landing Page
+   Figma ref: Local Brand Fair (TBD) 354:1727
+   ═══════════════════════════════════════════ */
+
+/* ─── Hero ─── */
+.hero {
+  background: var(--color-surface-base);
+  position: relative; overflow: hidden;
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(40px, 6vw, 70px) var(--gutter) 0;
+}
+.hero-video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(43, 36, 32, 0.5);
+  z-index: 1;
+}
+.hero-content {
+  position: relative; z-index: 2; max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 180px;
+}
+.hero-eyebrow {
+  font-size: var(--fs-sm); font-weight: var(--fw-bold);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--sp-element);
+  opacity: 0; animation: fadeUp 0.8s ease 0.2s forwards;
+}
+.hero h1 {
+  margin-bottom: var(--sp-element);
+  opacity: 0; animation: fadeUp 0.8s ease 0.4s forwards;
+}
+.hero-logo {
+  width: clamp(240px, 40vw, 420px);
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+.hero-copy {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: calc(var(--fs-2xl) + 4px);
+  color: var(--color-text-primary);
+  margin-bottom: var(--sp-block);
+  opacity: 0; animation: fadeUp 0.8s ease 0.5s forwards;
+}
+.hero-rotating {
+  font-family: 'MunmakchoByeolban', sans-serif;
+  font-size: calc(var(--fs-2xl) + 6px);
+  display: inline-block;
+  min-width: 80px;
+  text-align: center;
+}
+.hero-actions {
+  display: flex; gap: var(--sp-8); flex-wrap: wrap;
+  justify-content: center;
+  opacity: 0; animation: fadeUp 0.8s ease 0.7s forwards;
+}
+.hero-actions .btn {
+  font-family: var(--font-primary);
+}
+.hero-meta {
+  display: flex; gap: var(--sp-section); flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--sp-section);
+  opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+}
+.hero-meta dt {
+  font-size: var(--fs-4xl); font-weight: var(--fw-black);
+  color: var(--color-accent-yellow); line-height: 1;
+}
+.hero-meta dd {
+  font-size: var(--fs-xs); letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--color-text-secondary); opacity: 0.6;
+  margin-top: var(--sp-3);
+}
+
+/* ─── Hero wave/mountain illustration ─── */
+.hero-landscape {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  z-index: 1; pointer-events: none;
+  height: 220px;
+}
+.hero-landscape svg {
+  display: block; width: 100%; height: 100%;
+}
+/* Floating mountain accent (right side) */
+.hero-mountain {
+  position: absolute; top: 15%; right: 5%;
+  z-index: 1; opacity: 0.12;
+  animation: floatMountain 12s ease-in-out infinite;
+}
+.hero-mountain svg {
+  width: clamp(200px, 25vw, 400px); height: auto;
+}
+@keyframes floatMountain {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══ WAVE DIVIDERS ═══ */
+.wave-divider {
+  display: block; width: 100%; height: auto;
+  margin: -2px 0;
+  transform-origin: center center;
+}
+
+/* ═══ PICK UP (icon row) ═══ */
+.pickup {
+  padding: var(--sp-section) var(--gutter);
+  background: var(--color-surface-white);
+}
+.pickup-inner {
+  max-width: var(--max-width); margin: 0 auto;
+}
+.pickup-label {
+  font-size: var(--fs-xs); font-weight: var(--fw-bold);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--color-accent-red);
+  margin-bottom: var(--sp-block); text-align: center;
+}
+.pickup-grid {
+  display: flex; justify-content: center;
+  gap: clamp(20px, 4vw, 60px);
+  flex-wrap: wrap;
+}
+.pickup-item {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--sp-6); min-width: 90px;
+  cursor: pointer;
+  transition: transform var(--motion);
+}
+.pickup-item:hover { transform: translateY(-4px); }
+.pickup-icon {
+  width: 64px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  background: var(--color-surface-muted);
+  transition: all var(--motion);
+}
+.pickup-item:hover .pickup-icon {
+  background: var(--color-accent-red);
+  box-shadow: 0 6px 20px rgba(234,62,74,0.25);
+}
+.pickup-icon svg {
+  width: 28px; height: 28px;
+  stroke: var(--color-text-dark); fill: none;
+  stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round;
+  transition: stroke var(--motion);
+}
+.pickup-item:hover .pickup-icon svg { stroke: white; }
+.pickup-name {
+  font-size: var(--fs-sm); font-weight: var(--fw-medium);
+  color: var(--color-text-dark); text-align: center;
+}
+
+/* ═══ Zone intro (기존 업그레이드) ═══ */
+.zone-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--sp-element);
+}
+.zone-item {
+  text-align: center;
+  padding: var(--sp-element) var(--sp-8);
+}
+.zone-icon {
+  width: 250px; height: 250px; margin: 0 auto var(--sp-8);
+  display: flex; align-items: center; justify-content: center;
+}
+.zone-icon img { width: 250px; height: 250px; object-fit: contain; }
+.zone-name {
+  font-size: var(--fs-2xl); font-weight: var(--fw-bold);
+  color: var(--color-text-dark); margin-bottom: var(--sp-3);
+}
+.zone-name em {
+  font-style: normal; font-size: var(--fs-sm);
+  color: var(--color-text-heading); display: block; margin-top: var(--sp-1);
+}
+.zone-desc {
+  font-size: var(--fs-md); color: var(--color-text-heading);
+}
+
+/* ═══ Post Slider — 세토우치 스타일 (flex: 제목 왼쪽 | 카드 오른쪽) ═══ */
+.post-slider-section {
+  padding: var(--sp-section) 0;
+  overflow: hidden;
+}
+.ps-layout {
+  display: flex;
+  align-items: flex-start;
+}
+.post-slider__heading {
+  flex: 0 0 auto;
+  width: max(200px, calc((100vw - var(--max-width)) / 2 + 200px));
+  padding: var(--sp-8) var(--sp-element) 0;
+  padding-left: max(var(--gutter), calc((100vw - var(--max-width)) / 2 + var(--gutter)));
+}
+.post-slider__heading h2 {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-3xl); font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  color: var(--color-text-dark);
+}
+.post-slider__bar {
+  display: flex; gap: 4px; margin-top: var(--sp-8);
+}
+.post-slider__bar span {
+  width: 24px; height: 3px;
+  background: var(--color-accent-blue);
+}
+/* 오른쪽 영역: 카드+버튼 */
+.post-slider__body {
+  flex: 1;
+  min-width: 0;
+}
+/* 트랙: body 안에서 가로 스크롤 */
+.post-slider__track {
+  display: flex; gap: 16px;
+  overflow-x: auto; scroll-snap-type: x mandatory;
+  padding: 0 var(--gutter) var(--sp-element) 0;
+  -webkit-overflow-scrolling: touch;
+}
+.post-slider__track::-webkit-scrollbar { display: none; }
+
+/* Card: 섬・행사장 (세로형, 이미지 + 아래 라벨) */
+.post-card {
+  flex: 0 0 270px; scroll-snap-align: start;
+  cursor: pointer;
+}
+.post-card:hover img { transform: scale(1.03); }
+.post-card__img {
+  aspect-ratio: 5/6;
+  overflow: hidden;
+}
+.post-card__img img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform var(--motion);
+}
+.post-card__label {
+  display: block;
+  font-size: var(--fs-md); font-weight: var(--fw-bold);
+  color: var(--color-text-dark);
+  padding: var(--sp-8) 0 0;
+  letter-spacing: 0.05em;
+}
+
+/* Card: 작품・작가 (가로형, 이미지+텍스트정보) */
+.post-card--wide {
+  flex: 0 0 390px;
+}
+.post-card--wide .post-card__img {
+  aspect-ratio: 3/2;
+  position: relative;
+}
+.post-card__heart {
+  position: absolute; top: 10px; right: 10px;
+  width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.85); border-radius: 50%;
+  border: none; cursor: pointer; z-index: 1;
+  color: var(--color-text-heading);
+  transition: all var(--motion);
+}
+.post-card__heart:hover { color: var(--color-accent-red); transform: scale(1.15); }
+.post-card__heart svg {
+  width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5;
+}
+.post-card__body {
+  padding: var(--sp-8) 0;
+}
+.post-card__location {
+  font-size: var(--fs-sm); color: var(--color-accent-blue);
+  margin-bottom: var(--sp-2);
+}
+.post-card__id {
+  font-size: var(--fs-xs); color: var(--color-text-heading);
+  margin-bottom: var(--sp-2);
+}
+.post-card__title {
+  font-size: var(--fs-xl); font-weight: var(--fw-bold);
+  color: var(--color-text-dark);
+  margin-bottom: var(--sp-2);
+}
+.post-card__artist {
+  font-size: var(--fs-sm); color: var(--color-text-heading);
+}
+
+/* Bottom row: MORE + next arrow */
+.post-slider__bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  padding-right: var(--gutter);
+}
+.more-link {
+  display: inline-flex; align-items: center; gap: var(--sp-element);
+  font-size: var(--fs-md); font-weight: var(--fw-bold);
+  color: var(--color-text-dark);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  padding: var(--sp-7) var(--sp-block);
+  border: 1.5px solid rgba(29,26,24,0.12);
+  transition: all var(--motion);
+}
+.more-link:hover {
+  border-color: var(--color-accent-blue);
+  color: var(--color-accent-blue);
+}
+.next-btn {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  border: 1.5px solid rgba(29,26,24,0.12);
+  background: none; cursor: pointer;
+  color: var(--color-text-dark);
+  transition: all var(--motion);
+}
+.next-btn:hover {
+  border-color: var(--color-accent-blue);
+  color: var(--color-accent-blue);
+}
+.next-btn svg {
+  width: 20px; height: 20px; stroke: currentColor; fill: none;
+  stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+}
+
+@media (max-width: 768px) {
+  .ps-layout { flex-direction: column; }
+  .post-slider__heading {
+    width: auto;
+    padding: 0 var(--gutter) var(--sp-element);
+  }
+  .post-slider__track { padding-left: var(--gutter); }
+  .post-slider__bottom { padding: 0 var(--gutter); }
+  .post-card { flex: 0 0 220px; }
+  .post-card--wide { flex: 0 0 300px; }
+}
+
+/* ═══ Featured Banner (Figma ref: dark teal full-bleed) ═══ */
+.featured {
+  position: relative; overflow: hidden;
+}
+.featured-inner {
+  max-width: var(--max-width); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-block); align-items: center;
+  padding: var(--sp-section) var(--gutter);
+}
+.featured-text h2 {
+  font-size: var(--fs-3xl); font-weight: var(--fw-bold);
+  margin-bottom: var(--sp-8);
+}
+.featured-text p {
+  font-size: var(--fs-lg); line-height: 1.8;
+  margin-bottom: var(--sp-block);
+  opacity: 0.8;
+}
+.featured-btns {
+  display: flex; gap: var(--sp-8); flex-wrap: wrap;
+}
+.featured-photos {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-8);
+}
+.featured-photos .photo {
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+}
+.featured-photos .photo img {
+  width: 100%; height: 100%; object-fit: cover;
+}
+.featured-photos .photo--placeholder {
+  display: flex; align-items: center; justify-content: center;
+}
+.featured-photos .photo--placeholder svg {
+  width: 32px; height: 32px; opacity: 0.3;
+  stroke: currentColor; fill: none; stroke-width: 1.5;
+}
+
+/* ═══ Area Section — 세토우치 지역맵 스타일 ═══ */
+.area-section {
+  background: #e8f2f8;
+  padding: var(--sp-section) 0;
+}
+.area-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-block);
+  align-items: center;
+}
+.area-heading {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-3xl);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-tight);
+  letter-spacing: 0;
+  color: var(--color-text-dark);
+  margin-bottom: var(--sp-block);
+}
+.area-list {
+  display: flex; flex-direction: column;
+  gap: var(--sp-element);
+  margin-bottom: var(--sp-block);
+}
+.area-list__row {
+  display: flex; align-items: center; gap: var(--sp-8);
+}
+.area-list__badge {
+  flex-shrink: 0;
+  display: inline-block;
+  font-size: var(--fs-sm); font-weight: var(--fw-bold);
+  color: white;
+  padding: var(--sp-3) var(--sp-8);
+  min-width: 60px; text-align: center;
+}
+.area-list__badge--red { background: var(--color-accent-red); }
+.area-list__badge--blue { background: var(--color-accent-blue); }
+.area-list__badge--yellow { background: #b8a000; }
+.area-list__row p {
+  font-size: calc(var(--fs-lg) - 2px);
+  color: var(--color-text-dark);
+  line-height: 1.6;
+}
+.area-actions {
+  display: flex; gap: var(--sp-8);
+}
+.area-visual {
+  display: flex; justify-content: center;
+}
+.area-visual img {
+  max-width: 100%; height: auto;
+}
+@media (max-width: 768px) {
+  .area-grid { grid-template-columns: 1fr; }
+  .area-visual { order: -1; }
+}
+
+/* ═══ CTA Banner ═══ */
+.cta-banner {
+  text-align: center;
+  padding: var(--sp-section) var(--gutter);
+}
+.cta-banner h2 {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-3xl); font-weight: var(--fw-bold);
+  margin-bottom: var(--sp-8);
+}
+.cta-banner p {
+  font-size: var(--fs-lg);
+  opacity: 0.8; margin-bottom: var(--sp-block);
+}
+.cta-banner .btn-group {
+  display: flex; gap: var(--sp-8); justify-content: center; flex-wrap: wrap;
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 768px) {
+  .hero { min-height: 85vh; }
+  .hero-content { padding-bottom: 140px; }
+  .hero-landscape { height: 180px; }
+  .hero-mountain { display: none; }
+  .hero-meta { gap: var(--sp-element); }
+  .zone-grid { grid-template-columns: repeat(2, 1fr); }
+  .featured-inner { grid-template-columns: 1fr; }
+  .brand-showcase-card { flex: 0 0 220px; }
+  .artwork-card { flex: 0 0 220px; }
+}
+@media (max-width: 480px) {
+  .hero-content { padding-bottom: 100px; }
+  .hero-landscape { height: 120px; }
+  .pickup-grid { gap: 16px; }
+  .pickup-icon { width: 52px; height: 52px; }
+}

@@ -1,0 +1,122 @@
+/* ═══════════════════════════════════════════
+   Landing Extra — 엽서 콘텐츠 전용 (레퍼런스 토큰 사용)
+   전시품목 상세 · 참관객 B2C/B2B · 부스 가격표 · 정보
+   ═══════════════════════════════════════════ */
+
+/* ─── Concept (section--dark) ─── */
+.concept-section { text-align: center; }
+.concept-section .section-title { margin-inline: auto; }
+.concept-bracket {
+  display: inline-block; min-width: 2.4em;
+  border-bottom: 4px solid var(--color-accent-yellow);
+  margin: 0 6px;
+}
+.concept-section .section-desc {
+  margin: var(--sp-element) auto 0; max-width: 640px;
+  font-size: var(--fs-xl); line-height: 1.7;
+}
+
+/* ─── 전시품목: zone-grid 위에 상세 칩 ─── */
+.zone-item .zone-tags {
+  display: flex; flex-wrap: wrap; gap: 6px;
+  justify-content: center; margin-top: var(--sp-6);
+}
+.zone-item .zone-tags span {
+  font-size: var(--fs-xs); font-weight: var(--fw-medium);
+  color: var(--color-text-dark);
+  background: var(--color-surface-muted);
+  padding: 4px 10px;
+  border: 1px solid rgba(29,26,24,0.1);
+}
+
+/* ─── 주요참관객 B2C / B2B ─── */
+.audience-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--sp-element); margin-top: var(--sp-block);
+}
+@media (max-width: 768px){ .audience-grid { grid-template-columns: 1fr; } }
+.audience-col {
+  padding: var(--sp-block);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.audience-col h3 {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-2xl); margin-bottom: var(--sp-element);
+}
+.audience-col--b2c h3 { color: var(--color-accent-blue); }
+.audience-col--b2b h3 { color: #d59bff; }
+.audience-col ul { display: grid; gap: var(--sp-6); }
+.audience-col li {
+  position: relative; padding-left: 26px;
+  font-size: var(--fs-lg); color: var(--color-text-secondary);
+}
+.audience-col li::before {
+  content: '✓'; position: absolute; left: 0;
+  color: var(--color-accent-yellow); font-weight: var(--fw-bold);
+}
+
+/* ─── 부스 참가 안내 ─── */
+.booth-table {
+  width: 100%; border-collapse: collapse;
+  margin-top: var(--sp-block);
+  background: var(--color-surface-white);
+  border: 2px solid var(--color-text-dark);
+}
+.booth-table th, .booth-table td {
+  border: 1px solid rgba(29,26,24,0.15);
+  padding: var(--sp-element); text-align: center;
+  font-size: var(--fs-md);
+}
+.booth-table thead th {
+  background: var(--color-surface-base);
+  color: var(--color-text-primary);
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  letter-spacing: 0.02em;
+}
+.booth-table tbody th {
+  background: var(--color-accent-yellow);
+  font-weight: var(--fw-bold);
+}
+.booth-table .price {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-xl); color: var(--color-text-dark);
+}
+.booth-promo {
+  margin-top: var(--sp-element);
+  background: var(--color-surface-base); color: #fff;
+  padding: var(--sp-block);
+}
+.booth-promo h4 {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  color: var(--color-text-primary);
+  font-size: var(--fs-lg); margin-bottom: var(--sp-8);
+}
+.booth-promo ul { display: grid; gap: var(--sp-5); }
+.booth-promo li {
+  font-size: var(--fs-md); color: var(--color-text-secondary);
+  padding-left: 18px; position: relative;
+}
+.booth-promo li::before { content: '—'; position: absolute; left: 0; color: var(--color-accent-yellow); }
+.booth-promo .promo-max {
+  margin-top: var(--sp-8); font-weight: var(--fw-bold);
+  color: var(--color-accent-yellow);
+}
+
+/* ─── 일정 · 장소 ─── */
+.info-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: var(--sp-element); margin-top: var(--sp-block);
+}
+.info-card {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: var(--sp-block);
+}
+.info-card .info-k {
+  font-size: var(--fs-xs); font-weight: var(--fw-bold);
+  letter-spacing: 0.15em; color: var(--color-accent-yellow);
+}
+.info-card .info-v {
+  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-size: var(--fs-2xl); margin-top: var(--sp-6);
+  line-height: 1.25;
+}
