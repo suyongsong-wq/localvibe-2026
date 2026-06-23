@@ -14,6 +14,8 @@
   --lv-tape-o:  rgba(255,181,145,0.55);  /* 주황 마스킹테이프 */
   --lv-tape-g:  rgba(176,255,198,0.6);   /* 연두 마스킹테이프 */
   --lv-disp: "jjzukinie", 'Noto Sans KR', sans-serif; /* 둥근 디스플레이 — JJZukinie(Adobe Fonts), Noto 폴백 */
+
+  /* 전시품목 카드 블롭은 Figma 추출 실제 SVG(images/exhibit/blob-*.svg)로 교체됨 — 아래 .lv-card-blob 참고 */
 }
 
 /* ═══ GNB — 로컬바이브 (브라운 스티키 바 + 옐로우) ═══ */
@@ -141,6 +143,17 @@
   color: rgba(255,254,124,.6);
   margin-bottom: clamp(18px, 2.5vw, 28px);
 }
+/* 섹션 아이브로 라벨 ([ About ], [ Registration ]) — JJZukinie, 가운데, 제목보다 작게 */
+.lv-eyebrow {
+  font-family: var(--lv-disp);
+  text-align: center;
+  font-size: clamp(15px, 1.7vw, 20px);
+  line-height: 1.2; letter-spacing: .01em;
+  margin: 0 0 clamp(8px, 1.1vw, 14px);
+}
+.lv-eyebrow--dark  { color: var(--lv-brown); }
+.lv-eyebrow--light { color: var(--lv-yellow); }
+
 .lv-concept-title {
   font-family: var(--lv-disp);
   font-size: clamp(15px, 4.4vw, 54px);
@@ -156,9 +169,13 @@
   position: relative;
 }
 .lv-bracket-word { padding: 0 .04em; }
-.lv-bracket b { font-weight: 400; }
+.lv-bracket b { font-weight: 400; } /* 괄호 [ ] 는 제목과 동일하게 JJZukinie 유지 */
 .lv-bracket-word {
   display: inline-block; min-width: 1ch; text-align: center;
+  /* 괄호 안에서 바뀌는 단어만 손글씨체 Cafe24 Shiningstar */
+  font-family: 'Cafe24 Shiningstar', cursive;
+  font-size: 1.18em;            /* 손글씨라 작아 보여 살짝 키워 균형 */
+  line-height: 1; transform: translateY(.04em);
 }
 .lv-concept-desc {
   margin: clamp(24px, 3.5vw, 40px) auto 0;
@@ -186,45 +203,88 @@
 }
 
 /* ═══ ② 전시품목 카드 (가로형 · 3+2 가운데 정렬) ═══ */
+/* #exhibit 전용 세로 여유 — .lv-section(공용)은 안 건드리고 여기서만 위·아래 패딩 확장 */
+#exhibit { padding-top: clamp(56px, 8vw, 110px); padding-bottom: clamp(72px, 9vw, 150px); }
 .lv-cards {
   display: flex; flex-wrap: wrap;
   justify-content: center;
-  gap: clamp(14px, 1.8vw, 22px);
+  position: relative;
+  z-index: 0;                /* 공유 스택 컨텍스트: 모든 블롭(z-index:-1)을 모든 텍스트 뒤로 */
+  /* 3+2 센터 배치. 윗줄 3개는 카드폭 30% + 열간격 5% → 3×30+2×5=100%로 좌우 꽉 차게.
+     아랫줄 2개는 2×30+5=65%로 가운데 모임. justify-center라 행마다 자동 중앙 정렬. */
+  row-gap: clamp(64px, 8vw, 130px);    /* 윗줄↔아랫줄 세로 간격 넉넉히 — 블롭끼리 빽빽하지 않게 */
+  column-gap: 9.5%;                    /* 가로 간격 확대 — 인접 블롭 중심 간격 27+9.5=36.5%로 벌려 가로 겹침 제거 */
+  padding-top: clamp(40px, 5vw, 80px); /* 인트로 설명과 윗줄 블롭 사이 간격(여행 블롭이 desc를 덮지 않게) */
+  padding-bottom: clamp(8px, 1.4vw, 24px);
 }
 .lv-card {
-  position: relative;
-  flex: 0 1 clamp(280px, 31%, 340px);
-  background: var(--lv-card);
-  border: 1.5px solid var(--lv-brown);
-  border-radius: 16px;
-  padding: clamp(20px, 2vw, 26px) clamp(20px, 2vw, 26px);
-  min-height: 150px;
-  transition: transform var(--motion), box-shadow var(--motion);
+  position: relative;        /* isolation 제거 — .lv-cards 공유 컨텍스트에서 블롭만 뒤로 보냄 */
+  flex: 0 0 27%;             /* 윗줄 3개 (3×27 + 2×9.5gap = 100%), 중심 간격 36.5% */
+  min-width: 250px;          /* 텍스트 줄바꿈 유지를 위한 최소 카드 콘텐츠 폭 */
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  /* 텍스트를 블롭의 넓은 중앙대로 모으기 위해 세로 중앙 정렬 */
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(20px, 2.2vw, 34px) clamp(26px, 2.8vw, 40px);
+  min-height: clamp(150px, 17vw, 220px);
+  transition: transform var(--motion);
 }
-.lv-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 5px 7px 0 var(--lv-brown);
+/* 컬러 유기적 블롭 배경 — Figma 시안에서 통짜 추출한 실제 블롭 SVG
+   (5장 모두 동일 path를 카테고리별 색 + 회전으로 변형. 원본 viewBox 334.363×320.487 비율 유지)
+   Figma 블롭 시각폭 ≈ 38%W. 카드폭 26%W의 약 1.46배 → width:146% */
+.lv-card-blob {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 122%;                /* 카드폭(27%W)의 1.22배 = 박스폭 33% < 중심간격 36.5% → 가로 인접 블롭 안 닿고 노란 틈 보임 */
+  max-width: none;            /* globals.css의 img{max-width:100%} 무력화 — 카드 밖으로 오버플로 허용 */
+  height: auto;
+  aspect-ratio: 334.363 / 320.487;
+  z-index: 0;                 /* 모든 블롭=레이어0, 모든 텍스트=레이어2(아래) → 텍스트가 항상 위 */
+  pointer-events: none;
+  transform: translate(-50%, -50%) rotate(var(--blob-rot, 0deg));
+  transition: transform var(--motion);
 }
+/* 아랫줄(4,5번째) 행 간격 — row-gap이 기본 분리, 살짝 끌어올려 윗줄 블롭과 유기적으로만 겹치게 */
+.lv-card:nth-child(n+4) { margin-top: clamp(-30px, -2.4vw, -14px); }
+/* .reveal(opacity/transform)이 카드마다 스택 컨텍스트를 만들므로, 윗줄(1~3)을 아랫줄(4,5) 위로
+   올려 윗줄 글씨가 아랫줄 블롭에 가리지 않게(Figma처럼 윗줄이 앞). 행간격을 충분히 둬서
+   윗줄 블롭이 아랫줄 오브젝트를 덮지 않게 함. */
+.lv-card:nth-child(-n+3) { z-index: 2; }
+.lv-card:nth-child(n+4)  { z-index: 1; }
+.lv-card:hover { transform: translateY(-6px); }
+.lv-card:hover .lv-card-blob { transform: translate(-50%, -50%) scale(1.03) rotate(var(--blob-rot, 0deg)); }
+/* 카테고리별 회전(Figma 원본 각도)로 5장이 똑같아 보이지 않게 */
+.lv-card:nth-child(1) .lv-card-blob { --blob-rot: -143.2deg; }
+.lv-card:nth-child(2) .lv-card-blob { --blob-rot: 13.1deg; }
+.lv-card:nth-child(3) .lv-card-blob { --blob-rot: 35.6deg; }
+.lv-card:nth-child(4) .lv-card-blob { --blob-rot: 40.3deg; }
+.lv-card:nth-child(5) .lv-card-blob { --blob-rot: -135deg; }
 /* 픽토그램 — 우측 float (글씨가 그림을 피해 흐름) · 높이 고정 + 각 SVG viewBox 비율 유지 */
 .lv-card-icon {
   float: right;
-  height: clamp(50px, 6vw, 66px);
-  margin: 0 0 6px 14px;
-  display: flex; align-items: flex-start; justify-content: flex-end; gap: 3px;
+  height: clamp(66px, 7.8vw, 86px);
+  margin: 0 0 8px 14px;
+  display: flex; align-items: flex-start; justify-content: flex-end; gap: 4px;
+  position: relative; z-index: 2;   /* 인접(아랫줄) 블롭 위로 */
 }
 /* preserveAspectRatio="none" SVG라 img에 명시 aspect-ratio(인라인) 필요. 높이만 100%, 너비는 비율로 자동 */
 .lv-card-icon img { height: 100%; width: auto; display: block; }
-.lv-card-icon--duo { height: clamp(46px, 5.6vw, 62px); }
+.lv-card-icon--duo { height: clamp(60px, 7.2vw, 80px); }
 /* 제목 */
 .lv-card-name {
   font-family: var(--lv-disp);
   font-size: clamp(19px, 2vw, 25px);
   color: var(--lv-brown); line-height: 1.1;
   margin-bottom: 12px;
+  white-space: nowrap;  /* 큰 아이콘이 옆에 와도 라벨은 한 줄 유지 */
+  position: relative; z-index: 2;   /* 인접(아랫줄) 블롭 위로 */
 }
 .lv-card-desc {
   font-size: clamp(12.5px, 1.4vw, 14.5px); line-height: 1.6;
   color: rgba(43,26,18,.78);
+  max-width: 100%;
+  position: relative; z-index: 2;   /* 인접(아랫줄) 블롭 위로 */
 }
 .lv-card::after { content: ''; display: block; clear: both; }
 
@@ -355,17 +415,17 @@
 
 /* ═══ ⑤ CTA ═══ */
 .lv-cta {
-  background: var(--lv-brown);
-  color: var(--lv-yellow);
+  background: var(--lv-blue);
+  color: var(--lv-brown);
   text-align: center;
   padding: clamp(56px, 8vw, 110px) var(--gutter);
 }
 .lv-cta h2 {
   font-family: var(--lv-disp);
   font-size: clamp(24px, 4vw, 44px); line-height: 1.25;
-  color: var(--lv-yellow); margin-bottom: 16px;
+  color: var(--lv-brown); margin-bottom: 16px;
 }
-.lv-cta p { color: rgba(255,254,124,.8); margin-bottom: 32px; font-size: clamp(15px,1.8vw,19px); }
+.lv-cta p { color: rgba(43,26,18,.82); margin-bottom: 32px; font-size: clamp(15px,1.8vw,19px); }
 .lv-cta-btns { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
 .lv-btn {
   display: inline-flex; align-items: center; justify-content: center;
@@ -375,14 +435,15 @@
   padding: 16px 36px; border-radius: 999px; min-height: 52px;
   transition: transform var(--motion), box-shadow var(--motion);
 }
-.lv-btn--fill { background: var(--lv-yellow); color: var(--lv-brown); }
-.lv-btn--fill:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(255,254,124,.35); }
-.lv-btn--line { border: 2px solid var(--lv-yellow); color: var(--lv-yellow); }
-.lv-btn--line:hover { background: var(--lv-yellow); color: var(--lv-brown); }
+/* 스카이블루 배경 → 채운 버튼은 다크 배경+밝은 글씨, 아웃라인은 다크 테두리+다크 글씨 */
+.lv-btn--fill { background: var(--lv-brown); color: var(--lv-yellow); }
+.lv-btn--fill:hover { transform: translateY(-3px); box-shadow: 0 8px 0 rgba(43,26,18,.3); }
+.lv-btn--line { border: 2px solid var(--lv-brown); color: var(--lv-brown); }
+.lv-btn--line:hover { background: var(--lv-brown); color: var(--lv-yellow); }
 
-/* ═══ ⑥ 푸터 — 블루 ═══ */
+/* ═══ ⑥ 푸터 — 다크 브라운 ═══ */
 .lv-footer {
-  background: var(--lv-blue); color: var(--lv-brown);
+  background: var(--lv-brown); color: var(--lv-yellow);
   padding: clamp(40px,5vw,64px) var(--gutter) clamp(28px,3vw,40px);
 }
 .lv-footer-inner {
@@ -394,24 +455,24 @@
   font-family: var(--lv-disp); font-size: clamp(20px,2.4vw,28px);
   margin-bottom: 8px;
 }
-.lv-footer-desc { font-size: 13.5px; line-height: 1.7; color: rgba(43,26,18,.78); }
+.lv-footer-desc { font-size: 13.5px; line-height: 1.7; color: rgba(255,254,124,.78); }
 .lv-footer-contact { display: grid; gap: 6px; font-size: 13.5px; }
-.lv-footer-contact a, .lv-footer-contact span { color: var(--lv-brown); }
+.lv-footer-contact a, .lv-footer-contact span { color: var(--lv-yellow); }
 .lv-footer-contact b { font-weight: 800; margin-right: 6px; }
 .lv-footer-contact a:hover { text-decoration: underline; }
 .lv-footer-sns { display: flex; gap: 12px; margin-top: 14px; }
 .lv-footer-sns a {
   width: 38px; height: 38px; border-radius: 50%;
-  border: 1.6px solid var(--lv-brown);
+  border: 1.6px solid var(--lv-yellow);
   display: flex; align-items: center; justify-content: center;
 }
-.lv-footer-sns a:hover { background: var(--lv-brown); }
-.lv-footer-sns a:hover svg { stroke: var(--lv-blue); }
-.lv-footer-sns svg { width: 18px; height: 18px; stroke: var(--lv-brown); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.lv-footer-sns a:hover { background: var(--lv-yellow); }
+.lv-footer-sns a:hover svg { stroke: var(--lv-brown); }
+.lv-footer-sns svg { width: 18px; height: 18px; stroke: var(--lv-yellow); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .lv-footer-bottom {
   max-width: 1100px; margin: clamp(28px,3vw,40px) auto 0;
-  padding-top: 18px; border-top: 1.5px solid rgba(43,26,18,.2);
-  font-size: 12px; color: rgba(43,26,18,.65); text-align: center;
+  padding-top: 18px; border-top: 1.5px solid rgba(255,254,124,.25);
+  font-size: 12px; color: rgba(255,254,124,.62); text-align: center;
 }
 
 /* ═══ 섹션 색 경계 물결 디바이더 ═══ */
@@ -461,7 +522,13 @@
 @media (max-width: 640px) {
   .lv-aud { grid-template-columns: 1fr; }
   .lv-panel--b2c, .lv-panel--b2b { transform: rotate(0); }
-  .lv-card { flex: 1 1 100%; }
+  .lv-card { flex: 1 1 100%; min-height: 220px; }
+  /* 모바일: 카드가 전체폭(가로로 김). 블롭은 위/아래로 좁아지므로 폭을 키워 텍스트가 블롭 안에 들어오게 */
+  .lv-card-icon { height: clamp(58px, 16vw, 78px); margin-right: 6px; }
+  .lv-card-icon--duo { height: clamp(54px, 15vw, 72px); }
+  .lv-card-blob { width: 122%; }
+  /* 카드가 넓어지므로 설명은 좌측 절반대에 머물러 우측 오브젝트와 겹치지 않게 */
+  .lv-card-desc { max-width: 62%; }
 }
 @media (max-width: 520px) {
   .lv-concept { padding-left: 12px; padding-right: 12px; }

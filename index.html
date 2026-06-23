@@ -39,9 +39,9 @@
     <nav class="lvnav-menu" aria-label="주요 메뉴">
       <a href="#concept">소개</a>
       <a href="#exhibit">전시품목</a>
-      <a href="#audience">주요참관객</a>
+      <!-- <a href="#audience">주요참관객</a> 주요참관객 섹션 숨김에 따라 비활성화 -->
       <!-- <a href="#booth">부스 참가</a> 부스 참가 안내 섹션 숨김에 따라 비활성화 -->
-      <a href="#collab">협업 문의</a>
+      <a href="#contact">협업 문의</a><!-- 협업 문의 섹션 숨김 → 푸터(연락처)로 연결 -->
     </nav>
     <a href="#register" class="lvnav-cta">부스 참가 신청</a>
     <button class="lvnav-toggle" aria-label="메뉴 열기" aria-expanded="false">
@@ -51,9 +51,9 @@
   <nav class="lvnav-mobile" aria-label="모바일 메뉴">
     <a href="#concept">소개</a>
     <a href="#exhibit">전시품목</a>
-    <a href="#audience">주요참관객</a>
+    <!-- <a href="#audience">주요참관객</a> 주요참관객 섹션 숨김에 따라 비활성화 -->
     <!-- <a href="#booth">부스 참가</a> 부스 참가 안내 섹션 숨김에 따라 비활성화 -->
-    <a href="#collab">협업 문의</a>
+    <a href="#contact">협업 문의</a><!-- 협업 문의 섹션 숨김 → 푸터(연락처)로 연결 -->
     <a href="#register" class="lvnav-cta">부스 참가 신청</a>
   </nav>
 </header>
@@ -127,32 +127,38 @@
     <section class="lv-section" id="exhibit">
       <div class="container">
         <div class="lv-exhibit-intro reveal">
+          <p class="lv-eyebrow lv-eyebrow--dark">[ About ]</p>
           <h3 class="lv-exhibit-head"><span class="bk">[</span>바이브로 발견하는 로컬의 숨은 매력<span class="bk">]</span></h3>
           <p class="lv-exhibit-desc">유형과 무형을 넘나드는 로컬 라이프스타일 아이템을 한자리에서<br>브랜드를 만나고, 체험하고, 여행을 예약하세요.</p>
         </div>
         <div class="lv-cards">
           <div class="lv-card reveal">
-            <div class="lv-card-icon"><img src="images/ex/food.svg" alt="음식" style="aspect-ratio:34.8133/26.5412"></div>
+            <img class="lv-card-blob" src="images/exhibit/blob-food.svg" alt="" aria-hidden="true">
+            <div class="lv-card-icon"><img src="images/exhibit/obj-food.svg" alt="음식" style="aspect-ratio:163.665/124.783"></div>
             <h3 class="lv-card-name">음식</h3>
             <p class="lv-card-desc">지역 특산물, 전통주, 수제 맥주, 와인, 커피, 빵, 디저트, 야시장, 스트릿 푸드</p>
           </div>
           <div class="lv-card reveal">
-            <div class="lv-card-icon"><img src="images/ex/travel.svg" alt="여행" style="aspect-ratio:42.0099/22.1507"></div>
+            <img class="lv-card-blob" src="images/exhibit/blob-travel.svg" alt="" aria-hidden="true">
+            <div class="lv-card-icon"><img src="images/exhibit/obj-travel.svg" alt="여행" style="aspect-ratio:197.498/104.135"></div>
             <h3 class="lv-card-name">여행</h3>
             <p class="lv-card-desc">문화재, 지역축제, 관광지, 테마거리, 여행 플랫폼, 여행사, 리조트/호텔, 캠핑</p>
           </div>
           <div class="lv-card reveal">
-            <div class="lv-card-icon"><img src="images/ex/exp.svg" alt="체험 & 레저" style="aspect-ratio:30.5526/23.4829"></div>
+            <img class="lv-card-blob" src="images/exhibit/blob-exp.svg" alt="" aria-hidden="true">
+            <div class="lv-card-icon"><img src="images/exhibit/obj-exp.svg" alt="체험 & 레저" style="aspect-ratio:143.635/110.407"></div>
             <h3 class="lv-card-name">체험 &amp; 레저</h3>
             <p class="lv-card-desc">레저 스포츠, 요트/크루즈, 레일 바이크, 하이킹, 아웃도어, 골프</p>
           </div>
           <div class="lv-card reveal">
-            <div class="lv-card-icon"><img src="images/ex/contents.svg" alt="콘텐츠" style="aspect-ratio:39.1295/19.0448"></div>
+            <img class="lv-card-blob" src="images/exhibit/blob-contents.svg" alt="" aria-hidden="true">
+            <div class="lv-card-icon"><img src="images/exhibit/obj-contents.svg" alt="콘텐츠" style="aspect-ratio:140.627/109.074"></div>
             <h3 class="lv-card-name">콘텐츠</h3>
             <p class="lv-card-desc">로컬 굿즈, 일러스트레이션, 캐릭터 IP, 지역 특화 작가 및 공방, 애니메이션, 공연/페스티벌</p>
           </div>
           <div class="lv-card reveal">
-            <div class="lv-card-icon lv-card-icon--duo"><img src="images/ex/comm1.svg" alt="" style="aspect-ratio:16.3022/25.1638"><img src="images/ex/comm2.svg" alt="커뮤니티" style="aspect-ratio:14.0366/20.9367"></div>
+            <img class="lv-card-blob" src="images/exhibit/blob-comm.svg" alt="" aria-hidden="true">
+            <div class="lv-card-icon lv-card-icon--duo"><img src="images/exhibit/obj-comm1.svg" alt="" style="aspect-ratio:75.9721/117.267"><img src="images/exhibit/obj-comm2.svg" alt="커뮤니티" style="aspect-ratio:65.4136/97.5756"></div>
             <h3 class="lv-card-name">커뮤니티</h3>
             <p class="lv-card-desc">복합문화공간, 도시재생사업, 협동조합, 로컬 커뮤니티</p>
           </div>
@@ -160,7 +166,8 @@
       </div>
     </section>
 
-    <!-- ③ 주요참관객 -->
+    <!-- ③ 주요참관객 — [숨김 처리] 나중에 다시 살리려면 아래 주석을 해제하세요 -->
+    <!--
     <section class="lv-section" id="audience">
       <div class="container">
         <p class="lv-label reveal">주요참관객</p>
@@ -187,6 +194,8 @@
         </div>
       </div>
     </section>
+    -->
+    <!-- /③ 주요참관객 숨김 끝 -->
 
     <!-- ④ 부스 참가 안내 — [숨김 처리] 나중에 다시 살리려면 아래 주석을 해제하세요 -->
     <!--
@@ -216,7 +225,9 @@
     -->
     <!-- /④ 부스 참가 안내 숨김 끝 -->
 
-    <!-- ⑤ 협업 문의 -->
+    <!-- ⑤ 협업 문의 — [숨김 처리] 나중에 다시 살리려면 아래 주석을 해제하세요
+         (나브 "협업 문의" 링크는 유지하되 섹션 숨김에 따라 href를 푸터 #contact로 연결함) -->
+    <!--
     <section class="lv-section" id="collab">
       <div class="container reveal">
         <p class="lv-label">협업 문의</p>
@@ -231,18 +242,21 @@
         </div>
       </div>
     </section>
+    -->
+    <!-- /⑤ 협업 문의 숨김 끝 -->
 
   </div><!-- /.lv-paper -->
 
-  <!-- wave: 본문(yellow) → CTA(brown) -->
+  <!-- wave: 본문(yellow) → CTA(skyblue) -->
   <svg class="lv-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 0 L1440 0 L1440 32 Q1080 74 720 40 Q360 6 0 44 Z" fill="#FFFE7C"/>
-    <path d="M0 44 Q360 6 720 40 Q1080 74 1440 32 L1440 70 L0 70 Z" fill="#2B1A12"/>
+    <path d="M0 44 Q360 6 720 40 Q1080 74 1440 32 L1440 70 L0 70 Z" fill="#81D5F1"/>
   </svg>
 
   <!-- ⑥ CTA -->
   <section class="lv-cta" id="register">
     <div class="reveal">
+      <p class="lv-eyebrow lv-eyebrow--dark">[ Registration ]</p>
       <h2>부스 참가 신청하고<br>로컬 바이브 2026과 함께하세요</h2>
       <p>지역의 브랜드가 새로운 여행의 이유가 되는 자리</p>
       <div class="lv-cta-btns">
@@ -252,16 +266,16 @@
     </div>
   </section>
 
-  <!-- wave: CTA(brown) → 푸터(blue) -->
+  <!-- wave: CTA(skyblue) → 푸터(brown) -->
   <svg class="lv-wave" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 0 L1440 0 L1440 32 Q1080 74 720 40 Q360 6 0 44 Z" fill="#2B1A12"/>
-    <path d="M0 44 Q360 6 720 40 Q1080 74 1440 32 L1440 70 L0 70 Z" fill="#81D5F1"/>
+    <path d="M0 0 L1440 0 L1440 32 Q1080 74 720 40 Q360 6 0 44 Z" fill="#81D5F1"/>
+    <path d="M0 44 Q360 6 720 40 Q1080 74 1440 32 L1440 70 L0 70 Z" fill="#2B1A12"/>
   </svg>
 
 </main>
 
 <!-- FOOTER — 블루 엽서 푸터 -->
-<footer class="lv-footer">
+<footer class="lv-footer" id="contact">
   <div class="lv-footer-inner">
     <div>
       <div class="lv-footer-brand">로컬바이브 주최사무국 / GMEG</div>
