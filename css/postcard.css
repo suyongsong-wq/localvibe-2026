@@ -151,8 +151,13 @@
   line-height: 1.2; letter-spacing: .01em;
   margin: 0 0 clamp(8px, 1.1vw, 14px);
 }
-.lv-eyebrow--dark  { color: var(--lv-brown); }
-.lv-eyebrow--light { color: var(--lv-yellow); }
+/* 괄호 [ ]는 다크 글씨 그대로, 하이라이트는 가운데 단어(.lv-eyebrow-mark)에만 */
+.lv-eyebrow--dark, .lv-eyebrow--light { color: var(--lv-brown); }
+.lv-eyebrow-mark { padding: .12em .4em; border-radius: 2px; }
+/* [ About ] — 가운데 단어 하늘색 하이라이트 */
+.lv-eyebrow--dark  .lv-eyebrow-mark { background: var(--lv-blue); }
+/* [ Registration ] — 가운데 단어 노란 하이라이트 */
+.lv-eyebrow--light .lv-eyebrow-mark { background: var(--lv-yellow); }
 
 .lv-concept-title {
   font-family: var(--lv-disp);
