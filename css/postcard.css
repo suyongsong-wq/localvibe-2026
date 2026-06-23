@@ -150,8 +150,8 @@
   line-height: 1.2; letter-spacing: .01em;
   width: fit-content;
   margin: 0 auto clamp(8px, 1.1vw, 14px);
-  padding: .15em .55em;          /* [ ] 괄호까지 채운 하이라이트 박스 */
-  border-radius: 2px;
+  padding: .08em .14em;          /* 글자에 딱 붙는 블록(선택) 느낌 하이라이트 */
+  border-radius: 1px;
 }
 /* [ About ] — 노란 섹션 위, 하늘색 하이라이트 + 다크 글씨 */
 .lv-eyebrow--dark  { color: var(--lv-brown); background: var(--lv-blue); }
@@ -277,7 +277,7 @@
 .lv-card-icon--duo { height: clamp(60px, 7.2vw, 80px); }
 /* 제목 */
 .lv-card-name {
-  font-family: var(--lv-disp);
+  font-family: var(--lv-disp);         /* JJZukinie (단일 Regular) */
   font-size: clamp(19px, 2vw, 25px);
   color: var(--lv-brown); line-height: 1.1;
   margin-bottom: 12px;
