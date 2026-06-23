@@ -330,7 +330,7 @@ a, button, input, select, textarea {
 .section--dark .section-label { color: var(--color-accent-yellow); }
 .section--red .section-label { color: rgba(255,255,255,0.6); }
 .section-title {
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   font-size: var(--fs-3xl); font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
   margin-bottom: var(--sp-5);

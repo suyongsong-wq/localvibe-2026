@@ -40,7 +40,7 @@
   border: 1px solid rgba(255,255,255,0.12);
 }
 .audience-col h3 {
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   font-size: var(--fs-2xl); margin-bottom: var(--sp-element);
 }
 .audience-col--b2c h3 { color: var(--color-accent-blue); }
@@ -70,7 +70,7 @@
 .booth-table thead th {
   background: var(--color-surface-base);
   color: var(--color-text-primary);
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   letter-spacing: 0.02em;
 }
 .booth-table tbody th {
@@ -78,7 +78,7 @@
   font-weight: var(--fw-bold);
 }
 .booth-table .price {
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   font-size: var(--fs-xl); color: var(--color-text-dark);
 }
 .booth-promo {
@@ -87,7 +87,7 @@
   padding: var(--sp-block);
 }
 .booth-promo h4 {
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   color: var(--color-text-primary);
   font-size: var(--fs-lg); margin-bottom: var(--sp-8);
 }
@@ -116,7 +116,7 @@
   letter-spacing: 0.15em; color: var(--color-accent-yellow);
 }
 .info-card .info-v {
-  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", sans-serif;
   font-size: var(--fs-2xl); margin-top: var(--sp-6);
   line-height: 1.25;
 }

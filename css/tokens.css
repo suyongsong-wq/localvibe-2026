@@ -4,12 +4,6 @@
    ═══════════════════════════════════════════ */
 
 @font-face {
-  font-family: 'YeogiOttaeJalnanGothic';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/JalnanGothic.woff') format('woff');
-  font-weight: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: 'MunmakchoByeolban';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2604-1@1.0/MUNMAK_BYEOLBANCHE.woff2') format('woff2');
   font-weight: normal;
