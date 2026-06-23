@@ -32,6 +32,9 @@
 .lvnav-logo {
   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   gap: 2px; margin-right: auto; flex-shrink: 0;
+  /* 히어로 로고(.lv-hero .title, left:4.4vw)와 좌측 끝 정렬.
+     nav-inner 좌측 = max(0,(100vw-1180px)/2), nav 패딩 = clamp(16px,3vw,40px) 보정 */
+  margin-left: calc(4.4vw - max(0px, (100vw - 1180px) / 2) - clamp(16px, 3vw, 40px));
 }
 .lvnav-logo img { display: block; width: auto; }
 .lvnav-logo .l-local { height: 15px;  aspect-ratio: 226.437 / 40.9215; }
