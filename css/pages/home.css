@@ -46,7 +46,7 @@
   margin: 0 auto;
 }
 .hero-copy {
-  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
   font-size: calc(var(--fs-2xl) + 4px);
   color: var(--color-text-primary);
   margin-bottom: var(--sp-block);
@@ -210,7 +210,7 @@
   padding-left: max(var(--gutter), calc((100vw - var(--max-width)) / 2 + var(--gutter)));
 }
 .post-slider__heading h2 {
-  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
   font-size: var(--fs-3xl); font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
   color: var(--color-text-dark);
@@ -401,7 +401,7 @@
   align-items: center;
 }
 .area-heading {
-  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
   font-size: var(--fs-3xl);
   font-weight: var(--fw-bold);
   line-height: var(--lh-tight);
@@ -453,7 +453,7 @@
   padding: var(--sp-section) var(--gutter);
 }
 .cta-banner h2 {
-  font-family: 'YeogiOttaeJalnanGothic', sans-serif;
+  font-family: "jjzukinie", 'YeogiOttaeJalnanGothic', sans-serif;
   font-size: var(--fs-3xl); font-weight: var(--fw-bold);
   margin-bottom: var(--sp-8);
 }

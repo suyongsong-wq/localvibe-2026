@@ -13,7 +13,7 @@
   --lv-purple:  #BE3FFF;  /* B2B */
   --lv-tape-o:  rgba(255,181,145,0.55);  /* 주황 마스킹테이프 */
   --lv-tape-g:  rgba(176,255,198,0.6);   /* 연두 마스킹테이프 */
-  --lv-disp: 'YeogiOttaeJalnanGothic', 'Noto Sans KR', sans-serif; /* 둥근 디스플레이 (JJZukinie 대체) */
+  --lv-disp: "jjzukinie", 'YeogiOttaeJalnanGothic', 'Noto Sans KR', sans-serif; /* 둥근 디스플레이 — JJZukinie(Adobe Fonts), 잘난고딕·Noto 폴백 */
 }
 
 /* ═══ GNB — 로컬바이브 (브라운 스티키 바 + 옐로우) ═══ */
