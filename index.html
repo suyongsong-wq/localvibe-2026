@@ -11,8 +11,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=Black+Han+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <!-- Adobe Fonts (Typekit) — JJZukinie 디스플레이 폰트 / 키트 lmv3hmg -->
-  <link rel="stylesheet" href="https://use.typekit.net/lmv3hmg.css">
+  <!-- Adobe Fonts (Typekit) — JJZukinie 디스플레이 폰트 / 키트 lmv3hmg
+       JS 임베드(동적 서브셋팅): 페이지에 실제 쓰인 한글 글리프까지 받아온다. CSS 링크 방식은 CJK 서브셋 누락. -->
+  <script>
+    (function(d) {
+      var config = { kitId: 'lmv3hmg', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+    })(document);
+  </script>
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/globals.css">
   <link rel="stylesheet" href="css/components.css">
