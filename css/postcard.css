@@ -146,18 +146,17 @@
 /* 섹션 아이브로 라벨 ([ About ], [ Registration ]) — JJZukinie, 가운데, 제목보다 작게 */
 .lv-eyebrow {
   font-family: var(--lv-disp);
-  text-align: center;
   font-size: clamp(15px, 1.7vw, 20px);
   line-height: 1.2; letter-spacing: .01em;
-  margin: 0 0 clamp(8px, 1.1vw, 14px);
+  width: fit-content;
+  margin: 0 auto clamp(8px, 1.1vw, 14px);
+  padding: .15em .55em;          /* [ ] 괄호까지 채운 하이라이트 박스 */
+  border-radius: 2px;
 }
-/* 괄호 [ ]는 다크 글씨 그대로, 하이라이트는 가운데 단어(.lv-eyebrow-mark)에만 */
-.lv-eyebrow--dark, .lv-eyebrow--light { color: var(--lv-brown); }
-.lv-eyebrow-mark { padding: .12em .4em; border-radius: 2px; }
-/* [ About ] — 가운데 단어 하늘색 하이라이트 */
-.lv-eyebrow--dark  .lv-eyebrow-mark { background: var(--lv-blue); }
-/* [ Registration ] — 가운데 단어 노란 하이라이트 */
-.lv-eyebrow--light .lv-eyebrow-mark { background: var(--lv-yellow); }
+/* [ About ] — 노란 섹션 위, 하늘색 하이라이트 + 다크 글씨 */
+.lv-eyebrow--dark  { color: var(--lv-brown); background: var(--lv-blue); }
+/* [ Registration ] — 스카이블루 섹션 위, 노란 하이라이트 + 다크 글씨 */
+.lv-eyebrow--light { color: var(--lv-brown); background: var(--lv-yellow); }
 
 .lv-concept-title {
   font-family: var(--lv-disp);
