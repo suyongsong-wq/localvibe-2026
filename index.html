@@ -32,7 +32,7 @@
       <a href="#concept">소개</a>
       <a href="#exhibit">전시품목</a>
       <a href="#audience">주요참관객</a>
-      <a href="#booth">부스 참가</a>
+      <!-- <a href="#booth">부스 참가</a> 부스 참가 안내 섹션 숨김에 따라 비활성화 -->
       <a href="#collab">협업 문의</a>
     </nav>
     <a href="#register" class="lvnav-cta">부스 참가 신청</a>
@@ -44,7 +44,7 @@
     <a href="#concept">소개</a>
     <a href="#exhibit">전시품목</a>
     <a href="#audience">주요참관객</a>
-    <a href="#booth">부스 참가</a>
+    <!-- <a href="#booth">부스 참가</a> 부스 참가 안내 섹션 숨김에 따라 비활성화 -->
     <a href="#collab">협업 문의</a>
     <a href="#register" class="lvnav-cta">부스 참가 신청</a>
   </nav>
@@ -55,14 +55,22 @@
   <!-- ═══ HERO — 로컬바이브 키비주얼 (Figma Frame 463 · 665×345) ═══ -->
   <section class="lv-hero" id="hero" aria-label="로컬바이브 Local Vibe">
 
-    <p class="at tagline">Taste Local, Travel Local, Connect Global</p>
-
     <div class="at title" aria-label="로컬바이브 Local Vibe">
       <img class="t-local" src="images/hero/title-3.svg" alt="" />
       <img class="t-vibe"  src="images/hero/title-2.svg" alt="" />
       <img class="t-kr"    src="images/hero/title-1.svg" alt="" />
     </div>
     <p class="at travelshow">by Travel Show</p>
+
+    <!-- 사전등록 정보 + 버튼 (로고 아래) -->
+    <div class="at lv-hero-reg">
+      <p class="lv-hero-reg-title">사전등록기간</p>
+      <p class="lv-hero-reg-date">2026. 7. 15 &mdash; 8.21 <span>|</span> COEX, Seoul</p>
+      <div class="lv-hero-reg-btns">
+        <a href="#register" class="lv-hero-btn lv-hero-btn--fill">사전 등록하기</a>
+        <a href="#exhibit" class="lv-hero-btn lv-hero-btn--line">브랜드 둘러보기</a>
+      </div>
+    </div>
 
     <!-- floating objects -->
     <div class="at obj chair"><div class="float"><div class="art"><img src="images/hero/obj-chair.svg" alt="" /></div></div></div>
@@ -110,7 +118,10 @@
     <!-- ② 전시품목 -->
     <section class="lv-section" id="exhibit">
       <div class="container">
-        <p class="lv-label reveal">전시품목</p>
+        <div class="lv-exhibit-intro reveal">
+          <h3 class="lv-exhibit-head"><span class="bk">[</span>바이브로 발견하는 로컬의 숨은 매력<span class="bk">]</span></h3>
+          <p class="lv-exhibit-desc">유형과 무형을 넘나드는 로컬 라이프스타일 아이템을 한자리에서<br>브랜드를 만나고, 체험하고, 여행을 예약하세요.</p>
+        </div>
         <div class="lv-cards">
           <div class="lv-card reveal">
             <div class="lv-card-icon"><img src="images/ex/food.svg" alt="음식" style="aspect-ratio:34.8133/26.5412"></div>
@@ -169,7 +180,8 @@
       </div>
     </section>
 
-    <!-- ④ 부스 참가 안내 -->
+    <!-- ④ 부스 참가 안내 — [숨김 처리] 나중에 다시 살리려면 아래 주석을 해제하세요 -->
+    <!--
     <section class="lv-section" id="booth">
       <div class="container reveal">
         <p class="lv-label">부스 참가 안내</p>
@@ -193,6 +205,8 @@
         </div>
       </div>
     </section>
+    -->
+    <!-- /④ 부스 참가 안내 숨김 끝 -->
 
     <!-- ⑤ 협업 문의 -->
     <section class="lv-section" id="collab">

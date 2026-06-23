@@ -170,6 +170,21 @@
 }
 .lv-concept-desc b { font-weight: 800; color: #fff; }
 
+/* ─── 전시품목 인트로 (Frame 462 헤딩+설명) ─── */
+.lv-exhibit-intro { text-align: center; margin: clamp(8px,1.5vw,18px) 0 clamp(28px,3.6vw,48px); }
+.lv-exhibit-head {
+  display: inline-flex; align-items: center; gap: .35em;
+  font-family: var(--lv-disp);
+  font-size: clamp(22px, 3.2vw, 40px); color: var(--lv-brown);
+  line-height: 1.2; letter-spacing: -0.01em;
+}
+.lv-exhibit-head .bk { font-weight: 400; transform: translateY(-.04em); }
+.lv-exhibit-desc {
+  margin-top: clamp(12px, 1.6vw, 20px);
+  font-size: clamp(14px, 1.7vw, 19px); line-height: 1.7;
+  color: rgba(43,26,18,.82);
+}
+
 /* ═══ ② 전시품목 카드 (가로형 · 3+2 가운데 정렬) ═══ */
 .lv-cards {
   display: flex; flex-wrap: wrap;
@@ -470,15 +485,8 @@
 .lv-hero .at { position: absolute; transform: translate(-50%, -50%); }
 
 /* TEXT */
-.lv-hero .tagline {
-  left: 23.46%; top: 31.0%;
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 700;
-  font-size: 1.477cqw;
-  white-space: nowrap; letter-spacing: .01em;
-}
 .lv-hero .travelshow {
-  left: 29.5%; top: 63.8%;
+  left: 29.5%; top: 45.55%;
   transform: none;
   font-weight: 700;
   font-size: 1.656cqw;
@@ -487,7 +495,7 @@
 
 /* TITLE wordmark */
 .lv-hero .title {
-  left: 4.4%; top: 36.52%;
+  left: 4.4%; top: 18.25%;
   transform: none;
   width: 38.04%;
   aspect-ratio: 253 / 138.115;
@@ -496,6 +504,43 @@
 .lv-hero .title .t-local { top: 0;     left: 0;    width: 100%;   height: 33.1%; }
 .lv-hero .title .t-vibe  { top: 37.8%; left: .13%; width: 63.25%; height: 34.25%; }
 .lv-hero .title .t-kr    { top: 79.3%; left: .13%; width: 63.17%; height: 20.71%; }
+
+/* 사전등록 정보 블록 (로고 아래) — 키비주얼 비율에 맞춰 cqw 스케일 */
+.lv-hero .lv-hero-reg {
+  left: 4.4%; top: 62.25%;
+  transform: none;
+  width: 46%;
+  color: var(--lv-brown);
+}
+.lv-hero-reg-title {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.6cqw;
+  line-height: 1.2;
+  margin: 0 0 .35cqw;
+}
+.lv-hero-reg-date {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 1.6cqw;
+  line-height: 1.2;
+  margin: 0 0 1.5cqw;
+  white-space: nowrap;
+}
+.lv-hero-reg-date span { opacity: .45; margin: 0 .3em; }
+.lv-hero-reg-btns { display: flex; gap: 1cqw; flex-wrap: wrap; }
+.lv-hero-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-primary); font-weight: 800;
+  font-size: 1.45cqw; line-height: 1;
+  padding: 1.1cqw 2.3cqw; border-radius: 999px;
+  white-space: nowrap;
+  transition: transform var(--motion), box-shadow var(--motion), background var(--motion), color var(--motion);
+}
+.lv-hero-btn--fill { background: var(--lv-brown); color: #fff; }
+.lv-hero-btn--fill:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(43,26,18,.25); }
+.lv-hero-btn--line { background: transparent; color: var(--lv-brown); border: 1px solid var(--lv-brown); }
+.lv-hero-btn--line:hover { background: var(--lv-brown); color: #fff; }
 
 /* PERSON (static) */
 .lv-hero .figure {
@@ -525,7 +570,7 @@
 
 .lv-hero .brain .art  { transform: rotate(-16.1deg); }
 .lv-hero .brain .blob { position: absolute; inset: 0; width: 100%; height: 100%; }
-.lv-hero .brain .icon { position: absolute; left: 36%; top: 40%;
+.lv-hero .brain .icon { position: absolute; left: 29%; top: 40%;
                         width: 42%; height: auto; aspect-ratio: 81.2292 / 61.9296;
                         transform: rotate(-2.6deg); }
 
