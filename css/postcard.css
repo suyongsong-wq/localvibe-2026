@@ -634,7 +634,7 @@
 
 /* 사전등록 정보 블록 (로고 아래) — 키비주얼 비율에 맞춰 cqw 스케일 */
 .lv-hero .lv-hero-reg {
-  left: 4.4%; top: 62.25%;
+  left: 4.4%; top: 65.5%;
   transform: none;
   width: 46%;
   color: var(--lv-brown);
@@ -644,7 +644,7 @@
   font-weight: 700;
   font-size: 1.6cqw;
   line-height: 1.2;
-  margin: 0 0 .35cqw;
+  margin: 0 0 1.5cqw;     /* 라벨이 하단 → 아래 버튼과의 간격 */
   white-space: nowrap;
 }
 /* 오픈 예정 안내 — 작고 연하게 */
@@ -654,7 +654,7 @@
   font-weight: 700;
   font-size: 1.6cqw;
   line-height: 1.2;
-  margin: 0 0 1.5cqw;
+  margin: 0 0 1.0cqw;     /* 날짜 아래 버튼과의 간격 */
   white-space: nowrap;
 }
 .lv-hero-reg-date span { opacity: .45; margin: 0 .3em; }
@@ -748,6 +748,15 @@
   letter-spacing: -0.01em;            /* Freesentation 폭 근사 */
   white-space: nowrap;                /* 시안처럼 한 줄 */
   margin: 0;
+}
+/* 팝업 보조 안내 (7월말 오픈예정) — 메시지 아래 작고 연하게 */
+.lv-modal-sub {
+  display: block;
+  margin-top: 0;
+  font-weight: 700;
+  font-size: 0.62em;
+  letter-spacing: -0.01em;
+  opacity: 0.55;
 }
 .lv-modal-btn {
   appearance: none; border: 0; cursor: pointer;
