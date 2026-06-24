@@ -28,14 +28,18 @@
   max-width: 1180px; margin: 0 auto;
   display: flex; align-items: center; gap: 16px;
   height: 64px; padding: 0 clamp(16px, 3vw, 40px);
+  /* 히어로 로고(left:4.4vw)와 좌우 끝을 맞추는 가장자리 정렬 오프셋.
+     nav-inner 좌측 = max(0,(100vw-1180px)/2), nav 패딩 = clamp(16px,3vw,40px) 보정 */
+  --edge-align: calc(4.4vw - max(0px, (100vw - 1180px) / 2) - clamp(16px, 3vw, 40px));
 }
 .lvnav-logo {
   display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
   gap: 2px; margin-right: auto; flex-shrink: 0;
-  /* 히어로 로고(.lv-hero .title, left:4.4vw)와 좌측 끝 정렬.
-     nav-inner 좌측 = max(0,(100vw-1180px)/2), nav 패딩 = clamp(16px,3vw,40px) 보정 */
-  margin-left: calc(4.4vw - max(0px, (100vw - 1180px) / 2) - clamp(16px, 3vw, 40px));
+  margin-left: var(--edge-align);   /* 히어로 로고와 좌측 끝 정렬 */
 }
+/* 우측 끝(데스크톱:CTA / 모바일:햄버거)을 로고와 대칭으로 우측 가장자리에 정렬 */
+.lvnav-inner > .lvnav-cta,
+.lvnav-toggle { margin-right: var(--edge-align); }
 .lvnav-logo img { display: block; width: auto; }
 .lvnav-logo .l-local { height: 15px;  aspect-ratio: 226.437 / 40.9215; }
 .lvnav-logo .l-vibe  { height: 15px;  aspect-ratio: 143.172 / 42.3345; }
@@ -529,13 +533,57 @@
 @media (max-width: 640px) {
   .lv-aud { grid-template-columns: 1fr; }
   .lv-panel--b2c, .lv-panel--b2b { transform: rotate(0); }
-  .lv-card { flex: 1 1 100%; min-height: 220px; }
-  /* 모바일: 카드가 전체폭(가로로 김). 블롭은 위/아래로 좁아지므로 폭을 키워 텍스트가 블롭 안에 들어오게 */
-  .lv-card-icon { height: clamp(58px, 16vw, 78px); margin-right: 6px; }
-  .lv-card-icon--duo { height: clamp(54px, 15vw, 72px); }
-  .lv-card-blob { width: 122%; }
-  /* 카드가 넓어지므로 설명은 좌측 절반대에 머물러 우측 오브젝트와 겹치지 않게 */
-  .lv-card-desc { max-width: 62%; }
+
+  /* ── 전시품목 모바일: 세로 1열 · 블롭이 카드에 꼭 맞는 독립 타일 ──
+     데스크톱은 가로형 카드(텍스트 좌, 블롭·오브젝트 우 부유)지만 좁은 화면에선
+     블롭이 거대해지고 텍스트가 밖으로 새므로, 카드를 블롭 비율(334:320)에 맞춘
+     정사각 타일로 만들고 내용을 가운데 모은다. */
+  .lv-cards {
+    flex-direction: column;
+    align-items: center;
+    row-gap: clamp(14px, 4vw, 26px);   /* 블롭끼리 살짝만 떨어지게 */
+    column-gap: 0;
+    padding-top: clamp(20px, 6vw, 36px);
+    padding-bottom: 0;
+  }
+  .lv-card {
+    flex: 0 0 auto;
+    width: min(84vw, 360px);
+    min-width: 0;
+    aspect-ratio: 334.363 / 320.487;   /* 블롭과 같은 비율 → 블롭이 카드를 꽉 채움 */
+    min-height: 0;
+    padding: clamp(26px, 9vw, 44px);
+    /* 내용 가운데 정렬 (데스크톱 좌측 정렬 → 모바일 중앙) */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0;                      /* 데스크톱 3+2 음수 마진 해제 */
+  }
+  /* 데스크톱 행 겹침/스택 순서 해제 — 1열에선 순수 흐름대로 */
+  .lv-card:nth-child(n+4) { margin-top: 0; }
+  .lv-card:nth-child(-n+3),
+  .lv-card:nth-child(n+4) { z-index: auto; }
+
+  /* 블롭: 카드를 채우되 회전 0 — 1열에서 깔끔하고 예측 가능하게(회전 시 이웃과 겹침) */
+  .lv-card-blob { width: 100%; }
+  .lv-card:nth-child(1) .lv-card-blob,
+  .lv-card:nth-child(2) .lv-card-blob,
+  .lv-card:nth-child(3) .lv-card-blob,
+  .lv-card:nth-child(4) .lv-card-blob,
+  .lv-card:nth-child(5) .lv-card-blob { --blob-rot: 0deg; }
+  .lv-card:hover .lv-card-blob { transform: translate(-50%, -50%) scale(1.03); }
+
+  /* 아이콘: 우측 부유 해제 → 상단 중앙 */
+  .lv-card-icon {
+    float: none;
+    margin: 0 auto clamp(8px, 2.5vw, 14px);
+    justify-content: center;
+    height: clamp(56px, 17vw, 78px);
+  }
+  .lv-card-icon--duo { height: clamp(52px, 15vw, 72px); }
+  .lv-card-name { margin-bottom: clamp(6px, 1.6vw, 10px); }
+  /* 설명은 블롭 가운데 폭 안에 머무르게 */
+  .lv-card-desc { max-width: 80%; margin: 0 auto; }
 }
 @media (max-width: 520px) {
   .lv-concept { padding-left: 12px; padding-right: 12px; }
