@@ -728,30 +728,38 @@
 .lv-modal-box {
   position: relative;
   box-sizing: border-box;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 11px;                          /* Figma: 본문↔버튼 간격 */
   background: #F5F5F5;
   color: var(--lv-brown);
-  border: 1.5px solid var(--lv-brown);   /* Figma Stroke 2B1A12 · Inside */
-  border-radius: 19px;
-  padding: clamp(34px, 6vw, 52px) clamp(28px, 6vw, 56px);
-  width: min(90vw, 420px);
+  border: 1px solid var(--lv-brown);  /* Figma Stroke #2B1A12 1px */
+  border-radius: 15px;                /* Figma radius 15 */
+  padding: clamp(26px, 5vw, 31px) clamp(30px, 8vw, 55px);
+  width: min(92vw, 360px);
   text-align: center;
   box-shadow: 0 24px 60px rgba(43,26,18,.22);
   animation: lvPop .26s cubic-bezier(.2,.9,.3,1.2);
 }
 .lv-modal-msg {
   font-family: var(--font-primary);
-  font-weight: 800;
-  font-size: clamp(19px, 2.6vw, 25px);
-  line-height: 1.4;
-  margin: 0 0 clamp(22px, 3.2vw, 30px);
+  font-weight: 800;                   /* Figma ExtraBold */
+  font-size: clamp(19px, 2.4vw, 24px);
+  line-height: 1.5;                   /* Figma 36/24 */
+  letter-spacing: -0.01em;            /* Freesentation 폭 근사 */
+  white-space: nowrap;                /* 시안처럼 한 줄 */
+  margin: 0;
 }
 .lv-modal-btn {
   appearance: none; border: 0; cursor: pointer;
+  box-sizing: border-box;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 126px;                       /* Figma 고정폭 */
   background: var(--lv-brown); color: var(--lv-yellow);
-  font-family: var(--font-primary); font-weight: 800;
+  font-family: var(--font-primary); font-weight: 700;  /* Figma Bold */
   font-size: clamp(16px, 1.9vw, 18px);
-  /* 사전 등록하기 CTA와 동일 글자:버튼 비율(세로 0.76em · 가로 1.59em) */
-  padding: 0.76em 1.59em; border-radius: 999px; line-height: 1;
+  letter-spacing: -0.01em;
+  padding: 9px 26px;                  /* Figma 패딩 */
+  border-radius: 999px; line-height: 1;
   transition: transform var(--motion), box-shadow var(--motion), filter var(--motion);
 }
 .lv-modal-btn:hover { transform: translateY(-2px); filter: brightness(1.12); box-shadow: 0 8px 18px rgba(43,26,18,.3); }
