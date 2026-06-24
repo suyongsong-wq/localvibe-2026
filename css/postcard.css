@@ -727,31 +727,33 @@
 }
 .lv-modal-box {
   position: relative;
-  background: var(--lv-yellow);
+  box-sizing: border-box;
+  background: #F5F5F5;
   color: var(--lv-brown);
-  border-radius: 22px;
-  padding: clamp(28px, 5vw, 40px) clamp(26px, 5vw, 44px);
-  width: min(90vw, 380px);
+  border: 1.5px solid var(--lv-brown);   /* Figma Stroke 2B1A12 · Inside */
+  border-radius: 19px;
+  padding: clamp(34px, 6vw, 52px) clamp(28px, 6vw, 56px);
+  width: min(90vw, 420px);
   text-align: center;
-  box-shadow: 0 14px 0 rgba(43,26,18,.18), 0 22px 50px rgba(43,26,18,.28);
+  box-shadow: 0 24px 60px rgba(43,26,18,.22);
   animation: lvPop .26s cubic-bezier(.2,.9,.3,1.2);
 }
 .lv-modal-msg {
   font-family: var(--font-primary);
   font-weight: 800;
-  font-size: clamp(17px, 2.4vw, 21px);
+  font-size: clamp(19px, 2.6vw, 25px);
   line-height: 1.4;
-  margin: 0 0 clamp(20px, 3vw, 26px);
+  margin: 0 0 clamp(22px, 3.2vw, 30px);
 }
 .lv-modal-btn {
   appearance: none; border: 0; cursor: pointer;
-  background: var(--lv-brown); color: #fff;
+  background: var(--lv-brown); color: var(--lv-yellow);
   font-family: var(--font-primary); font-weight: 800;
-  font-size: clamp(14px, 1.8vw, 16px);
-  padding: 12px 34px; border-radius: 999px;
-  transition: transform var(--motion), box-shadow var(--motion);
+  font-size: clamp(13.5px, 1.6vw, 15px);
+  padding: 9px 28px; border-radius: 999px;   /* 사전 등록하기 CTA 비율에 맞춰 슬림하게 */
+  transition: transform var(--motion), box-shadow var(--motion), filter var(--motion);
 }
-.lv-modal-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(43,26,18,.25); }
+.lv-modal-btn:hover { transform: translateY(-2px); filter: brightness(1.12); box-shadow: 0 8px 18px rgba(43,26,18,.3); }
 @keyframes lvFade { from { opacity: 0; } to { opacity: 1; } }
 @keyframes lvPop { from { opacity: 0; transform: scale(.9) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
 @media (prefers-reduced-motion: reduce) {
