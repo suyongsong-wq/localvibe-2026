@@ -72,7 +72,7 @@
 
     <!-- 사전등록 정보 + 버튼 (로고 아래) -->
     <div class="at lv-hero-reg">
-      <p class="lv-hero-reg-title">사전등록기간</p>
+      <p class="lv-hero-reg-title">사전등록하기 <span class="lv-hero-reg-note">(7월말 오픈예정)</span></p>
       <p class="lv-hero-reg-date">2026. 7. 15 &mdash; 8.21 <span>|</span> COEX, Seoul</p>
       <div class="lv-hero-reg-btns">
         <a href="#register" class="lv-hero-btn lv-hero-btn--fill">사전 등록하기</a>
@@ -296,6 +296,15 @@
     &copy; 2026 로컬바이브 조직위원회 / GMEG. Local Vibe. All rights reserved.
   </div>
 </footer>
+
+<!-- 사전 등록하기 안내 팝업 -->
+<div class="lv-modal" id="lvRegModal" aria-hidden="true">
+  <div class="lv-modal-backdrop" data-lv-close></div>
+  <div class="lv-modal-box" role="dialog" aria-modal="true" aria-labelledby="lvRegModalMsg">
+    <p class="lv-modal-msg" id="lvRegModalMsg">현재 등록기간이 아닙니다.</p>
+    <button type="button" class="lv-modal-btn" data-lv-close>확인</button>
+  </div>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>

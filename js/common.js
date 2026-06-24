@@ -20,6 +20,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ─── 사전 등록하기 안내 팝업 (등록기간 아님) ───
+  const lvRegModal = document.getElementById('lvRegModal');
+  if (lvRegModal) {
+    const openRegModal = () => {
+      lvRegModal.classList.add('is-open');
+      lvRegModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      const okBtn = lvRegModal.querySelector('.lv-modal-btn');
+      if (okBtn) okBtn.focus();
+    };
+    const closeRegModal = () => {
+      lvRegModal.classList.remove('is-open');
+      lvRegModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+    // 히어로 "사전 등록하기" 버튼 클릭 시 팝업 (앵커 이동 차단)
+    document.querySelectorAll('.lv-hero-btn--fill').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        openRegModal();
+      });
+    });
+    lvRegModal.querySelectorAll('[data-lv-close]').forEach(el => {
+      el.addEventListener('click', closeRegModal);
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lvRegModal.classList.contains('is-open')) closeRegModal();
+    });
+  }
+
   // ─── Mega menu toggle ───
   const toggle = document.querySelector('.gnb-toggle');
   const megaMenu = document.getElementById('megaMenu');

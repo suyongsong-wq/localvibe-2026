@@ -645,7 +645,10 @@
   font-size: 1.6cqw;
   line-height: 1.2;
   margin: 0 0 .35cqw;
+  white-space: nowrap;
 }
+/* 오픈 예정 안내 — 작고 연하게 */
+.lv-hero-reg-note { font-weight: 700; font-size: .82em; opacity: .58; }
 .lv-hero-reg-date {
   font-family: var(--font-primary);
   font-weight: 700;
@@ -707,4 +710,50 @@
 
 @media (prefers-reduced-motion: reduce) {
   .lv-hero .obj .float { animation: none !important; }
+}
+
+/* ═══ 사전 등록하기 안내 팝업 ═══ */
+.lv-modal {
+  position: fixed; inset: 0; z-index: 1000;
+  display: none; align-items: center; justify-content: center;
+  padding: 24px;
+}
+.lv-modal.is-open { display: flex; }
+.lv-modal-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(43,26,18,.55);
+  backdrop-filter: blur(2px);
+  animation: lvFade .2s ease;
+}
+.lv-modal-box {
+  position: relative;
+  background: var(--lv-yellow);
+  color: var(--lv-brown);
+  border-radius: 22px;
+  padding: clamp(28px, 5vw, 40px) clamp(26px, 5vw, 44px);
+  width: min(90vw, 380px);
+  text-align: center;
+  box-shadow: 0 14px 0 rgba(43,26,18,.18), 0 22px 50px rgba(43,26,18,.28);
+  animation: lvPop .26s cubic-bezier(.2,.9,.3,1.2);
+}
+.lv-modal-msg {
+  font-family: var(--font-primary);
+  font-weight: 800;
+  font-size: clamp(17px, 2.4vw, 21px);
+  line-height: 1.4;
+  margin: 0 0 clamp(20px, 3vw, 26px);
+}
+.lv-modal-btn {
+  appearance: none; border: 0; cursor: pointer;
+  background: var(--lv-brown); color: #fff;
+  font-family: var(--font-primary); font-weight: 800;
+  font-size: clamp(14px, 1.8vw, 16px);
+  padding: 12px 34px; border-radius: 999px;
+  transition: transform var(--motion), box-shadow var(--motion);
+}
+.lv-modal-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(43,26,18,.25); }
+@keyframes lvFade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes lvPop { from { opacity: 0; transform: scale(.9) translateY(8px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+@media (prefers-reduced-motion: reduce) {
+  .lv-modal-backdrop, .lv-modal-box { animation: none; }
 }
