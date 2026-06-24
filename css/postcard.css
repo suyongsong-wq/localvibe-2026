@@ -749,8 +749,9 @@
   appearance: none; border: 0; cursor: pointer;
   background: var(--lv-brown); color: var(--lv-yellow);
   font-family: var(--font-primary); font-weight: 800;
-  font-size: clamp(13.5px, 1.6vw, 15px);
-  padding: 9px 28px; border-radius: 999px;   /* 사전 등록하기 CTA 비율에 맞춰 슬림하게 */
+  font-size: clamp(16px, 1.9vw, 18px);
+  /* 사전 등록하기 CTA와 동일 글자:버튼 비율(세로 0.76em · 가로 1.59em) */
+  padding: 0.76em 1.59em; border-radius: 999px; line-height: 1;
   transition: transform var(--motion), box-shadow var(--motion), filter var(--motion);
 }
 .lv-modal-btn:hover { transform: translateY(-2px); filter: brightness(1.12); box-shadow: 0 8px 18px rgba(43,26,18,.3); }
