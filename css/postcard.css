@@ -97,7 +97,12 @@
   padding: 13px 4px; border-bottom: 1px solid rgba(255,254,124,.1);
 }
 .lvnav-mobile a:last-child { border-bottom: none; }
-.lvnav-mobile .lvnav-cta { margin-top: 14px; text-align: center; padding: 13px; }
+/* 모바일 드롭다운 CTA: .lvnav-mobile a(노란 글자)가 .lvnav-cta(갈색 글자)를
+   덮어 노란 배경 위 노란 글자로 사라지던 문제 → 갈색 글자 명시 + 링크 밑줄선 제거 */
+.lvnav-mobile .lvnav-cta {
+  margin-top: 14px; text-align: center; padding: 13px;
+  color: var(--lv-brown); border-bottom: none;
+}
 .lvnav.is-open .lvnav-mobile { display: flex; }
 
 /* 앵커 이동 시 스티키 바에 가리지 않도록 */
