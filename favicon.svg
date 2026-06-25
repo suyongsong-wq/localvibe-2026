@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="로컬바이브">
+  <!-- 옐로우 바탕 + 브라운 외곽 (브랜드 버튼/카드 스타일) -->
+  <rect x="2.5" y="2.5" width="59" height="59" rx="16" fill="#FFFE7C" stroke="#2B1A12" stroke-width="4"/>
+  <!-- 로고의 시그니처 퍼플 'O' 캡슐 -->
+  <rect x="13" y="22" width="38" height="20" rx="10" fill="none" stroke="#BE3FFF" stroke-width="7.5"/>
+</svg>

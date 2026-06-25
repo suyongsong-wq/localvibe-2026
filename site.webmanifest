@@ -1,0 +1,15 @@
+{
+  "name": "로컬바이브 Local Vibe 2026",
+  "short_name": "로컬바이브",
+  "description": "2026.11.20-22 코엑스 C홀. 로컬 브랜드·여행·체험·콘텐츠를 한자리에.",
+  "lang": "ko",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFE7C",
+  "theme_color": "#FFFE7C",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" },
+    { "src": "/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" }
+  ]
+}
