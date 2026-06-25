@@ -168,7 +168,7 @@
 /* [ About ] — 노란 섹션 위, 하늘색 하이라이트 + 다크 글씨 */
 .lv-eyebrow--dark  { color: var(--lv-brown); background: var(--lv-blue); }
 /* [ Registration ] — 스카이블루 섹션 위, 노란 하이라이트 + 다크 글씨 */
-.lv-eyebrow--light { color: var(--lv-brown); background: var(--lv-yellow); }
+.lv-eyebrow.lv-eyebrow--light { color: #000; background: var(--lv-yellow); }  /* .lv-cta p 우선순위 이김 */
 
 .lv-concept-title {
   font-family: var(--lv-disp);
@@ -201,7 +201,7 @@
   color: rgba(255,254,124,.92);
   font-weight: 400;
 }
-.lv-concept-desc b { font-weight: 800; color: #fff; }
+.lv-concept-desc b { font-weight: 800; color: var(--lv-blue); }
 
 /* ─── 전시품목 인트로 (Frame 462 헤딩+설명) ─── */
 .lv-exhibit-intro { text-align: center; margin: clamp(8px,1.5vw,18px) 0 clamp(28px,3.6vw,48px); }
@@ -668,7 +668,7 @@
   white-space: nowrap;
   transition: transform var(--motion), box-shadow var(--motion), background var(--motion), color var(--motion);
 }
-.lv-hero-btn--fill { background: var(--lv-brown); color: #fff; }
+.lv-hero-btn--fill { background: var(--lv-brown); color: var(--lv-yellow); }
 .lv-hero-btn--fill:hover { transform: translateY(-2px); box-shadow: 0 6px 0 rgba(43,26,18,.25); }
 .lv-hero-btn--line { background: transparent; color: var(--lv-brown); border: 1px solid var(--lv-brown); }
 .lv-hero-btn--line:hover { background: var(--lv-brown); color: #fff; }
